@@ -12,7 +12,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "nba": "^4.5.0"
+    "nba": "^4.5.0",
+    "validate": "^4.5.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
