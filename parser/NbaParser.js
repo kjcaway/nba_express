@@ -13,6 +13,7 @@ function getPlayerInfo(data){
     position : '',
     rosterStatus : '',
     tId : '',
+    tCity : '',
     tName : '',
     fromYear : '',
     toYear : '',
@@ -46,6 +47,7 @@ function getPlayerInfo(data){
       result.position = temp.position;
       result.rosterStatus = temp.rosterstatus;
       result.tId = temp.teamId;
+      result.tCity = temp.teamCity;
       result.tName = temp.teamName;
       result.fromYear = temp.fromYear;
       result.toYear = temp.toYear;

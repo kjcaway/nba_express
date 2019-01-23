@@ -10,6 +10,9 @@ const reqBodySchema = new Schema({
         type :String,
         required : true,
         length:{min:3, max:32}
+    },
+    "isRaw": {
+        type : Boolean
     }
 })
 
@@ -30,7 +33,12 @@ router.post('/player', (req, res) => {
     nba.stats.playerInfo({ 'PlayerID': player.playerId })
         .then((data) => {
             console.log("Find player! name == "+ data.commonPlayerInfo[0].displayFirstLast)
-            return res.json({'data': NbaParser.getPlayerInfo(data)})
+
+            if(req.body.isRaw){
+                return res.json(data);
+            } else{
+                return res.json({'data': NbaParser.getPlayerInfo(data)})
+            }
         })
         .catch(function (err) {
             console.log(err);
