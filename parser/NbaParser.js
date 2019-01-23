@@ -37,7 +37,7 @@ function getPlayerInfo(data){
   
       result.pId = temp.personId;
       result.pName = temp.displayFirstLast;
-      result.birthData = temp.birthdate;
+      result.birthDate = temp.birthdate;
       result.school = temp.school;
       result.country = temp.country;
       result.lastAffiliation = temp.lastAffiliation;
