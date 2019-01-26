@@ -30,7 +30,7 @@ router.post('/player', (req, res) => {
     }
 
     // player id 로 추가 정보 조회 
-    nba.stats.playerInfo({ 'PlayerID': player.playerId })
+    nba.stats.playerInfo({ PlayerID : player.playerId })
         .then((data) => {
             console.log("Find player! name == "+ data.commonPlayerInfo[0].displayFirstLast)
 
@@ -45,5 +45,41 @@ router.post('/player', (req, res) => {
             return res.status(500).json({'error' : 1, 'message' : 'Error, playerInfo'})
         });
 })
+
+router.post('/team', (req, res) => {
+    nba.stats.teamInfoCommon({
+        TeamID : req.body.teamId,
+        Season : req.body.season
+    }).then((data) => {
+        return res.json(data)
+    })
+})
+
+router.post('/scoreboard', (req, res) => {
+    nba.stats.scoreboard({
+        gameDate : req.body.gameDate
+    }).then((data) => {
+        return res.json(data)
+    })
+})
+
+router.post('/playbyplay', (req, res) => {
+    nba.stats.playByPlay({
+        GameID : req.body.gameID
+    }).then((data) => {
+        return res.json(data)
+    })
+})
+
+router.post('/playerprofile', (req, res) => {
+    nba.stats.playerProfile({
+        PlayerID : req.body.playerId,
+        Season : req.body.season
+    }).then((data) => {
+        return res.json(data)
+    })
+})
+
+
 
 module.exports = router
