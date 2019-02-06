@@ -63,6 +63,15 @@ router.post('/scoreboard', (req, res) => {
     })
 })
 
+router.post('/rank', (req, res) => {
+    nba.stats.scoreboard({
+        gameDate : req.body.gameDate
+    }).then((data) => {
+        
+        return res.json({'data': NbaParser.getRank(data)})
+    })
+})
+
 router.post('/playbyplay', (req, res) => {
     nba.stats.playByPlay({
         GameID : req.body.gameID

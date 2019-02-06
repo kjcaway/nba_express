@@ -73,4 +73,13 @@ function getPlayerInfo(data){
   }
 }
 
-module.exports = {getPlayerInfo}
+function getRank(data){
+  let result = {};
+
+  result.eastConfStandingsByDay = _.get(data,'eastConfStandingsByDay', []);
+  result.westConfStandingsByDay = _.get(data,'westConfStandingsByDay', []);
+
+  return result;
+}
+
+module.exports = {getPlayerInfo, getRank}
