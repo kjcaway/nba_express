@@ -8,6 +8,7 @@
 **/*.pyc
 **/config.json
 **/uploads/*
+**/logs/*
 
 # testing
 /coverage
